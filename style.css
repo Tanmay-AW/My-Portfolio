@@ -1,72 +1,191 @@
-/* Reset and basics */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
   scroll-behavior: smooth;
+}
+:root {
+  --bg: #0d0d0d;
+  --text: #f5f5f5;
+  --muted: #888;
+  --accent: #7f5af0;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
-  padding: 20px;
 }
 
-/* Header */
-header {
-  text-align: center;
-  background: #0d6efd;
-  color: #fff;
+.container {
+  max-width: 960px;
+  margin: 0 auto;
   padding: 40px 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
 }
 
-header nav ul {
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+nav ul {
   list-style: none;
-  margin-top: 20px;
   padding: 0;
+  margin-top: 30px;
 }
 
-header nav ul li {
+nav ul li {
   display: inline-block;
   margin: 0 15px;
 }
 
-header nav ul li a {
-  color: #fff;
+nav ul li a {
   text-decoration: none;
-  font-weight: bold;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-/* Sections */
-section {
-  margin-bottom: 40px;
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+.section {
+  padding: 60px 20px;
 }
 
 h2 {
-  color: #0d6efd;
-  margin-bottom: 10px;
-}
-
-ul {
-  margin-left: 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent);
 }
 
 blockquote {
-  margin: 20px;
+  border-left: 4px solid var(--accent);
   padding-left: 15px;
-  border-left: 4px solid #0d6efd;
+  color: var(--muted);
   font-style: italic;
-  color: #555;
+  margin-top: 20px;
 }
 
-/* Footer */
-footer {
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: #1a1a1a;
+  padding: 15px;
   text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #777;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(127, 90, 240, 0.2);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(127, 90, 240, 0.4);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(127, 90, 240, 0.2);
+}
+
+.project-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+footer {
+ footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+}
+a:focus {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent);
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent);
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
 }

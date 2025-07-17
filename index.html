@@ -3,79 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tanmay Gunwant | Creative Developer</title>
+  <title>Tanmay Gunwant — Web Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Hero Banner -->
-  <header id="home">
-    <h1>👋 Hello, I'm <strong>Tanmay Gunwant</strong></h1>
-    <p>A creative mind crafting clean code and meaningful experiences.</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <hr>
+  <!-- Navigation -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="hero-title">Tanmay Gunwant</h1>
+      <p class="hero-subtitle typewriter">Frontend Developer | Aspiring MERN Stack Engineer</p>
+      <nav class="nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>👨‍💻 About Me</h2>
-    <p>I’m a web developer who believes in clean structure, minimalist design, and writing code with intention. Currently focused on HTML, CSS, and GitHub workflows.</p>
-    <blockquote>
-      “Code is poetry. Design is intelligence made visible.”
-    </blockquote>
+  <!-- About -->
+  <section id="about" class="section glass">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a builder. A developer who believes in structure, style, and pushing pixels with purpose. Currently exploring the MERN stack to build apps that aren’t just usable — they’re unforgettable.</p>
+      <blockquote>“Great interfaces are invisible — you only feel them.”</blockquote>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2>🛠️ My Toolbox</h2>
-    <ul>
-      <li>HTML5 - Semantic and clean structure</li>
-      <li>CSS3 - Responsive and elegant styling</li>
-      <li>JavaScript - Interactive logic and flow</li>
-      <li>Git & GitHub - Version control wizardry</li>
-      <li>VS Code - My digital canvas</li>
-    </ul>
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>My Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">CSS3</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Git & GitHub</div>
+        <div class="skill-card">VS Code</div>
+        <div class="skill-card">React (Learning)</div>
+        <div class="skill-card">Node.js (Learning)</div>
+        <div class="skill-card">MongoDB (Learning)</div>
+      </div>
+    </div>
   </section>
 
-  <section id="projects">
-    <h2>🚀 Projects</h2>
+  <!-- Projects -->
+  <section id="projects" class="section glass">
+    <div class="container">
+      <h2>Projects</h2>
 
-    <article>
-      <h3>Flipkart Clone</h3>
-      <p>A basic clone of Flipkart built using only HTML and CSS for structure and layout learning.</p>
-      <p><a href="https://github.com/yourusername/flipkart-clone" target="_blank">GitHub Repo</a></p>
-    </article>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Flipkart Clone</h3>
+          <p>HTML & CSS replica of Flipkart to sharpen structure and responsive design skills.</p>
+          <a href="https://github.com/yourusername/flipkart-clone" target="_blank">View on GitHub</a>
+        </div>
 
-    <article>
-      <h3>My Portfolio Website</h3>
-      <p>The very site you're reading now. Crafted with simplicity, structure, and love for the web.</p>
-    </article>
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>This site — custom built, styled with purpose, and constantly evolving as I grow.</p>
+        </div>
 
-    <article>
-      <h3>Dev Journal (Coming Soon)</h3>
-      <p>A place to write about my journey, what I learn, and how I grow as a developer.</p>
-    </article>
+        <div class="project-card coming-soon">
+          <h3>Dev Journal</h3>
+          <p>Coming soon: A digital notebook of my learnings and daily developer grind.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>📬 Contact Me</h2>
-    <p>Want to collaborate or just say hi? Feel free to reach out!</p>
-
-    <ul>
-      <li>Email: <a href="mailto:tanmay@example.com">tanmay@example.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/tanmaygunwantdev" target="_blank">/in/tanmaygunwantdev</a></li>
-      <li>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></li>
-    </ul>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Want to collaborate, mentor, or just talk code? I’m all ears.</p>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:tanmaygwork172@gmail.com">tanmaygwork172@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/tanmaygunwantdev" target="_blank">/in/tanmaygunwantdev</a></li>
+        <li>GitHub: <a href="https://github.com/Tanmay-AW" target="_blank">@yourusername</a></li>
+      </ul>
+    </div>
   </section>
 
   <footer>
-    <hr>
-    <p>&copy; 2025 Tanmay Gunwant — Built with pure HTML and passion.</p>
+    <div class="container">
+      <p>&copy; 2025 Tanmay Gunwant — Designed & built with vision.</p>
+    </div>
   </footer>
 
 </body>
