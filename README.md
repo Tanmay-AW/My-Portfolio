@@ -1,8 +1,8 @@
 # My Portfolio Website 🌐
 
-🚀 Built using HTML & CSS  
+🚀 Built using HTML , CSS and JavaScript 
 🎯 Showcases my skills, journey, and web dev capabilities  
-📍 Live: [tanmay-aw.github.io/My-Portforlio](https://tanmay-aw.github.io/My-Portforlio/)
+📍 Live: [tanmay-aw.github.io/My-Portforlio]( https://tanmay-aw.github.io/My-Portfolio/)
 
 ## About Me
 
