@@ -10,32 +10,27 @@
   <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap' rel='stylesheet'>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="style.css">
-  <link rel="JavaScript" href="script.js">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-</head>
+  </head>
 
-<!-- Navigation -->
 <body>
   <header class="hero">
     <div class="container">
       <h1 class="hero-title">TANMAY GUNWANT</h1>
       <p class="hero-subtitle typewriter">Full-Stack Developer | Aspiring MERN Stack Engineer</p>
 
-      <!-- Hamburger Icon -->
-      <div class="menu-toggle" aria-expanded="false"><i class='bx bx-menu'></i></div>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu"><i class='bx bx-menu'></i></button>
 
-<!-- Navigation Menu -->
-<nav class="nav" role="navigation" aria-label="Main Navigation">
-  <ul>
-    <li><button class="glow-btn" onclick="location.href='#about'">About Me</button></li>
-    <li><button class="glow-btn" onclick="location.href='#skills'">Skills</button></li>
-    <li><button class="glow-btn" onclick="location.href='#projects'">Projects</button></li>
-    <li><button class="glow-btn" onclick="location.href='#contact'">Contact</button></li>
-  </ul>
-</nav>
+      <nav class="nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#about" class="glow-btn">About Me</a></li>
+          <li><a href="#skills" class="glow-btn">Skills</a></li>
+          <li><a href="#projects" class="glow-btn">Projects</a></li>
+          <li><a href="#contact" class="glow-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-<!-- About Section -->
   <main>
     <section id="about" class="container">
       <h2>About Me</h2>
@@ -144,12 +139,11 @@
       <p>&copy;2025 Tanmay Gunwant — Designed & built with vision.</p>
     </div>
   </footer>
-   <!-- Scroll to Top Button -->
+  
   <button id="scrollToTop" class="scroll-top" aria-label="Scroll to top">
     <i class='bx bx-chevron-up'></i>
   </button>
 
   <script src="script.js"></script>
-  
 </body>
 </html>

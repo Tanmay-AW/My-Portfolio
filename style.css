@@ -13,7 +13,7 @@
   --glass: rgba(30, 30, 46, 0.6);
   --border: rgba(255, 255, 255, 0.1);
   --transition: all 0.3s ease;
-  --ripple: #9d7dff33;
+  --ripple: #9d7dff33; /* Using a more transparent variant for the ripple */
 }
 
 html {
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */ /* Temporarily removed for debugging responsive issues. Re-add only if NO horizontal scrollbar appears after fixes. */
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
@@ -86,6 +86,7 @@ section.visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; /* Needed for z-index of menu-toggle */
 }
 
 .hero-title {
@@ -98,30 +99,45 @@ section.visible {
   font-size: clamp(1.1rem, 3.5vw, 1.2rem);
   color: var(--muted);
   margin-bottom: 2rem;
-}
-
-/* Typewriter effect */
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid var(--accent);
-  width: 0;
-  animation: 
-    typing 3s steps(40, end) forwards,
-    blink 0.75s step-end 4;
   max-width: 600px;
-  margin: 0 auto 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Typewriter effect - default for mobile (no animation, full text visible) */
+.typewriter {
+  /* On mobile, we want text to wrap and be fully visible */
+  line-height: 1.5; /* Allows text to break into multiple lines */
+  display: block; /* Ensures it behaves like a block element, taking full width */
+  text-align: center; /* Ensures text remains centered */
+  /* Remove any overflow: hidden; or white-space: nowrap; from here */
+  border-right: none; /* No cursor on mobile */
+}
+
+/* Typewriter animations for desktop (only apply on larger screens) */
+@media (min-width: 769px) { /* Adjust breakpoint if needed */
+    .typewriter {
+        overflow: hidden; /* Essential for typewriter effect on desktop */
+        white-space: nowrap; /* Essential for typewriter effect on desktop */
+        width: 0; /* Start from 0 width for the animation */
+        border-right: 2px solid var(--accent); /* Initial cursor for desktop */
+        animation: 
+            typing 3s steps(40, end) forwards,
+            blink 0.75s step-end infinite;
+    }
+}
+
+/* Ensure your @keyframes typing and @keyframes blink are still defined as before in your CSS: */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink {
   from, to { border-color: var(--accent); }
   50% { border-color: transparent; }
 }
+
 
 /* ===== NAVIGATION ===== */
 nav ul {
@@ -150,6 +166,9 @@ nav ul li {
   transition: var(--transition);
   box-shadow: 0 0 10px rgba(127, 90, 240, 0.5);
   display: inline-block;
+  position: relative; /* Needed for ripple effect */
+  overflow: hidden; /* Ensure ripple stays within button */
+  z-index: 1; /* Ensure button is above ripple */
 }
 
 .glow-btn:hover {
@@ -162,52 +181,52 @@ nav ul li {
 .glow-btn:active {
   transform: scale(0.98);
 }
-.glow-btn::after {
-  content: '';
+
+/* Ripple effect added by JavaScript */
+.ripple {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
+  border-radius: 50%;
   background: var(--ripple);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
+  animation: ripple-animation 0.7s ease-out forwards;
+  transform: scale(0);
+  pointer-events: none; /* Allow clicks to pass through */
+  opacity: 0.8;
+  z-index: 0; /* Ensures ripple is behind button content */
 }
 
-.glow-btn:focus:not(:active)::after {
-  animation: ripple 0.7s ease-out;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(30, 30);
+@keyframes ripple-animation {
+  to {
+    transform: scale(30); /* Scale up a lot */
     opacity: 0;
   }
 }
+
+/* Fallback for browsers not supporting backdrop-filter */
 @supports not (backdrop-filter: blur(8px)) {
-    .glass {
-        background: rgba(30, 30, 46, 0.8); /* Fallback solid background */
+    .glass, .nav {
+        background: rgba(30, 30, 46, 0.95); /* Fallback solid background */
     }
 }
+
 /* Mobile menu toggle */
 .menu-toggle {
-  display: none;
+  display: none; /* Hidden by default on desktop */
   background: transparent;
   border: none;
   color: var(--text);
   font-size: 2rem;
   cursor: pointer;
-  position: fixed;
+  position: fixed; /* Keep it fixed so it's always available */
   top: 1.5rem;
   right: 1.5rem;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it's above other content */
   transition: var(--transition);
+  padding: 8px; /* Give it a larger tap area */
+  border-radius: 50%;
+}
+
+.menu-toggle:hover {
+  background: rgba(127, 90, 240, 0.2);
 }
 
 /* ===== SECTION STYLES ===== */
@@ -234,11 +253,10 @@ blockquote {
   margin: 2rem 0;
   background: rgba(127, 90, 240, 0.05);
   border-radius: 0 10px 10px 0;
-  font-style: italic;
-  color: var(--muted);
+  position: relative; /* Establish positioning context for ::before */
 }
 blockquote::before {
-  content: '"';
+  content: '“'; /* Changed to a single opening quote for consistency */
   position: absolute;
   top: -20px;
   left: 10px;
@@ -250,7 +268,6 @@ blockquote::before {
 
 
 /* ===== SKILLS SECTION ===== */
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -268,6 +285,8 @@ blockquote::before {
   transition: var(--transition);
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative; /* For ripple effect */
+  overflow: hidden;
 }
 
 .skill-card i {
@@ -303,7 +322,10 @@ blockquote::before {
   flex-direction: column;
   height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative; /* For ripple effect */
+  overflow: hidden;
 }
+
 .project-card img {
   display: block; /* Makes the image a block element, ensuring it stacks with text */
   margin: 0 auto 1.5rem; /* Centers horizontally and adds space below */
@@ -311,12 +333,7 @@ blockquote::before {
   height: auto;
   border-radius: 8px; /* Maintains aspect ratio */
 }
-section img {
-  display: block;
-  margin: 0 auto 1rem;
-  max-width: 100%;
-  height: auto;
-}
+
 .project-card:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
@@ -338,6 +355,7 @@ section img {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: auto; /* Push links to the bottom */
 }
 
 .project-links a {
@@ -348,14 +366,9 @@ section img {
   font-weight: 500;
   transition: var(--transition);
   border: 1px solid rgba(127, 90, 240, 0.3);
-}
-@media (max-width: 600px) {
-    .project-links a {
-        width: 100%;
-        text-align: center;
-        padding: 0.8rem 1.5rem; /* Increased padding for better touch targets */
-        margin-bottom: 0.5rem; /* Space between stacked links */
-    }
+  position: relative; /* For ripple effect */
+  overflow: hidden;
+  z-index: 1;
 }
 
 .project-links a:hover,
@@ -464,46 +477,63 @@ footer::before {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+/* Mobile First Adjustments */
+
+/* Adjust hero padding for smaller screens to ensure header content and toggle are visible */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px; /* Space for fixed menu-toggle */
+        padding-bottom: 60px;
+    }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: block; /* Show hamburger icon on mobile */
   }
-  
+
   .nav {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100%; /* Off-screen by default */
     height: 100vh;
     width: 70%;
-    max-width: 300px;
-    background: rgba(30, 30, 46, 0.8);
+    max-width: 300px; /* Limit width even on larger tablets */
+    background: rgba(30, 30, 46, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
     z-index: 999;
     transition: right 0.4s ease-in-out;
-    padding: 6rem 2rem 2rem;
-    box-shadow: 6rem 2rem 2rem,
-  }
-  
-  .menu-toggle.bx-x {
-    background: var(--accent);
+    padding: 6rem 2rem 2rem; /* Padding for content inside menu */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Corrected box-shadow syntax */
   }
 
-   .nav.active {
-    right: 0;
+  .nav.active {
+    right: 0; /* Slide in */
   }
- 
+  
+  /* Ensure navigation buttons stack vertically when menu is open */
   .nav ul {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; /* More space between stacked buttons */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    align-items: center; /* Center buttons horizontally */
   }
-  
-  .nav-link {
-    width: 100%;
+
+  .nav ul li {
+    width: 100%; /* Ensure list items take full width for buttons */
     text-align: center;
   }
-  
+
+  .glow-btn {
+    width: 100%; /* Make buttons take full width within menu item */
+    max-width: 220px; /* Optional: limit overall width for consistency */
+    padding: 12px 20px; /* Adjust padding for better touch target */
+  }
+
   .container {
-    padding: 20px 15px;
+    padding: 20px 15px; /* Adjust container padding for tablets and smaller */
   }
   
   .glass {
@@ -516,65 +546,47 @@ footer::before {
 }
 
 @media (max-width: 600px) {
-  .hero {
-    padding: 100px 20px 60px;
-  }
-  
   .hero-title {
     font-size: 2.2rem;
   }
   
   .project-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack project cards on very small screens */
   }
   
   .project-links {
-    flex-direction: column;
+    flex-direction: column; /* Stack project links vertically */
     gap: 0.8rem;
   }
   
   .project-links a {
     width: 100%;
     text-align: center;
+    padding: 0.8rem 1.5rem; /* Increased padding for better touch targets */
+    margin-bottom: 0.5rem; /* Space between stacked links */
   }
   
   .contact-list li {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* Align items to the start when stacked */
     gap: 0.5rem;
   }
   
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px
-  }
-   .section {
+  .section {
     padding: 40px 0;
-  }
-  
-  .glow-btn {
-    padding: 12px 24px;
-    width: 100%;
-    max-width: 260px;
   }
 }
 
 
-/* Focus States */
+/* Focus States for Accessibility */
 a:focus-visible,
 button:focus-visible,
-.skill-card:focus-visible {
+.skill-card:focus-visible,
+.project-card:focus-visible { /* Added project-card */
   outline: 2px dashed var(--accent);
   outline-offset: 3px;
 }
 .scroll-top:focus-visible {
-  outline: 2px dashed var(--accent);
-  outline-offset: 3px;
-}
-button:focus-visible,
-.skill-card:focus-visible {
   outline: 2px dashed var(--accent);
   outline-offset: 3px;
 }
@@ -584,60 +596,4 @@ button:focus-visible,
 .skill-card:active,
 .project-card:active {
   transform: scale(0.98) !important;
-}
-@media (max-width: 500px) {
-  .nav ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-}
-.menu-toggle {
-  font-size: 30px;
-  color: white;
-  background: none;
-  padding: 4px;
-  border-radius: 50%;
-  transition: background 0.3s;
-}
-.menu-toggle:hover {
-  background: rgba(127, 90, 240, 0.2);
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: rgba(30, 30, 46, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 6rem 2rem 2rem;
-    transition: right 0.4s ease-in-out;
-    z-index: 1000;
-  }
-
-  .nav.active {
-    right: 0;
-  }
-
-  .nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .glow-btn {
-    width: 100%;
-    max-width: 220px;
-    padding: 12px 20px;
-  }
 }
