@@ -1,105 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Tanmay Gunwant — Full-Stack Web Developer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Tanmay Gunwant, a Frontend Developer and aspiring MERN Stack Engineer">
+  <meta name="keywords" content="portfolio, frontend developer, MERN stack, web development">
+  <meta name="author" content="Tanmay Gunwant">
+  <title>TANMAY GUNWANT</title>
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="JavaScript" href="script.js">
 </head>
-<body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
+<body>
   <header class="hero">
     <div class="container">
       <h1 class="hero-title">TANMAY GUNWANT</h1>
-      <p class="hero-subtitle typewriter">Frontend Developer | Aspiring MERN Stack Engineer</p>
-      
-      <!-- Mobile Menu Toggle -->
-      <button id="menu" class="menu-toggle" aria-label="Navigation Menu" aria-expanded="false">
+      <p class="hero-subtitle typewriter">Full-Stack Developer | Aspiring MERN Stack Engineer</p>
+
+     <!-- Mobile menu toggle -->
+      <div class="mobile-nav">
+        <button id="mobile-menu" class="menu-toggle" aria-label="Mobile Navigation Menu" aria-expanded="false">
+          <i class='bx bx-menu'></i>
+        </button>
+      </div>
+      <nav class="nav" role="navigation">
+        <button id="menu" class="menu-toggle" aria-label="Navigation Menu" aria-expanded="false">
         <i class='bx bx-menu'></i>
       </button>
-
+      
       <nav class="nav" role="navigation" aria-label="Main Navigation">
         <ul>
           <li><button class="glow-btn" onclick="location.href='#about'">About Me</button></li>
           <li><button class="glow-btn" onclick="location.href='#skills'">Skills</button></li>
           <li><button class="glow-btn" onclick="location.href='#projects'">Projects</button></li>
           <li><button class="glow-btn" onclick="location.href='#contact'">Contact</button></li>
+         </ul>
         </ul>
       </nav>
     </div>
   </header>
 
+<!-- About Section -->
   <main>
-    <!-- About -->
-    <section id="about" class="section glass">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>I'm a final-year B.Tech Computer Science student with a strong focus on full-stack web development, especially the MERN stack. What makes me stand out isn't just my technical ability — it's how I work. I leverage modern AI models as collaborative tools in my development process, enhancing not only my speed but also the precision and quality of my output. This synergy allows me to debug faster, adapt to new technologies quicker, and handle complex tasks with clarity and confidence. Whether it's building responsive UIs, integrating APIs, or optimizing workflows, I bring the efficiency of automation with the creativity of a developer — making me a high-impact team member who gets more done in less time. </p>
+    <section id="about" class="container">
+      <h2>About Me</h2>
+      <div class="glass">
+        <p>I'm a final-year B.Tech Computer Science student with a strong focus on full-stack web development, especially the MERN stack. What makes me stand out isn't just my technical ability — it's how I work. I leverage modern AI models as collaborative tools in my development process, enhancing not only my speed but also the precision and quality of my output. This synergy allows me to debug faster, adapt to new technologies quicker, and handle complex tasks with clarity and confidence. Whether it's building responsive UIs, integrating APIs, or optimizing workflows, I bring the efficiency of automation with the creativity of a developer — making me a high-impact team member who gets more done in less time.</p>
         <blockquote>“Great interfaces are invisible — you only feel them.”</blockquote>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2>My Stack</h2>
-        <div class="skills-grid">
-          <div class="skill-card" tabindex="0" role="button">HTML5</div>
-          <div class="skill-card" tabindex="0" role="button">CSS3</div>
-          <div class="skill-card" tabindex="0" role="button">JavaScript</div>
-          <div class="skill-card" tabindex="0" role="button">Git & GitHub</div>
-          <div class="skill-card" tabindex="0" role="button">VS Code</div>
-          <div class="skill-card" tabindex="0" role="button">React (Learning)</div>
-          <div class="skill-card" tabindex="0" role="button">Node.js (Learning)</div>
-          <div class="skill-card" tabindex="0" role="button">MongoDB (Learning)</div>
+    <section id="skills" class="container">
+      <h2>My Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class='bx bxl-html5'></i>
+          <span>HTML5</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-css3'></i>
+          <span>CSS3</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-javascript'></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-github'></i>
+          <span>Git & GitHub</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-visual-studio'></i>
+          <span>VS Code</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-react'></i>
+          <span>React (Learning)</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-nodejs'></i>
+          <span>Node.js (Learning)</span>
+        </div>
+        <div class="skill-card">
+          <i class='bx bxl-mongodb'></i>
+          <span>MongoDB (Learning)</span>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section glass">
-      <div class="container">
-        <h2>My Projects</h2>
-
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>Flipkart Clone</h3>
-            <p>HTML & CSS replica of Flipkart to sharpen structure and responsive design skills.</p>
-            <div class="project-links">
-              <a href="https://your-live-link.com" target="_blank" aria-label="Flipkart Clone Live Demo">Live Demo</a>
-              <a href="https://yourusername.github.io/flipkart-clone" target="_blank" aria-label="Flipkart Clone GitHub Repository">View on GitHub</a>
-            </div>
+    <section id="projects" class="container">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Flipkart Clone</h3>
+          <p>HTML & CSS replica of Flipkart to sharpen structure and responsive design skills.</p>
+          <div class="project-links">
+            <a href="https://github.com/" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
           </div>
-
-          <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>This very site! Designed using HTML, CSS, and deployed via GitHub Pages.</p>
-            <div class="project-links">
-              <a href="https://tanmay-aw.github.io/My-Portforlio/" target="_blank" aria-label="Portfolio Website Live Demo">Live Demo</a>
-              <a href="https://github.com/tanmay-aw/My-Portforlio" target="_blank" aria-label="Portfolio GitHub Repository">View on GitHub</a>
-            </div>
+        </div>
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>This very site! Designed using HTML, CSS, JavaScript and deployed via GitHub Pages.</p>
+          <div class="project-links">
+            <a href="https://tanmay-aw.github.io/My-Portfolio/" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/Tanmay-AW/My-Portfolio" target="_blank" rel="noopener">View on GitHub</a>
           </div>
-
-          <div class="project-card">
-            <h3>Dev Journal</h3>
-            <p>Coming soon: A digital notebook of my learnings and daily developer grind.</p>
-            <div class="project-links">
-              <a href="https://your-live-link.com" target="_blank" aria-label="Dev Journal Live Demo">Live Demo</a>
-              <a href="https://yourusername.github.io/dev-journal" target="_blank" aria-label="Dev Journal GitHub Repository">View on GitHub</a>
-            </div>
+        </div>
+        <div class="project-card">
+          <h3>Dev Journal</h3>
+          <p>Coming soon: A digital notebook of my learnings and daily developer grind.</p>
+          <div class="project-links">
+            <a href="https://github.com/" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2><br>
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <div class="glass">
         <p>Want to collaborate, mentor, or just talk code? I'm all ears.</p>
         <ul class="contact-list">
           <li>
@@ -107,12 +131,16 @@
             <a href="mailto:tanmaywork172@gmail.com">tanmaywork172@gmail.com</a>
           </li>
           <li>
-            <i class='bx bxl-linkedin'></i>
-            <a href="https://linkedin.com/in/tanmaygunwantdev" target="_blank">TanmayGunwant</a>
+            <i class='bx bxl-github'></i>
+            <a href="https://github.com/Tanmay-AW" target="_blank" rel="noopener">Tanmay-AW</a>
           </li>
           <li>
-            <i class='bx bxl-github'></i>
-            <a href="https://github.com/Tanmay-AW" target="_blank">@Tanmay-AW</a>
+            <i class='bx bxl-linkedin'></i>
+            <a href="https://www.linkedin.com/in/tanmaygunwantdev" target="_blank" rel="noopener">Tanmay Gunwant</a>
+          </li>
+          <li>
+            <i class='bx bxl-twitter'></i>
+            <a href="https://x.com/tanmay_gunwant?t=Q9WvGWZBRT2ReG-dr-UxoQ&s=09" target="_blank" rel="noopener">Tanmay Gunwant</a>
           </li>
         </ul>
       </div>
@@ -124,6 +152,12 @@
       <p>&copy;2025 Tanmay Gunwant — Designed & built with vision.</p>
     </div>
   </footer>
+   <!-- Scroll to Top Button -->
+  <button id="scrollToTop" class="scroll-top" aria-label="Scroll to top">
+    <i class='bx bx-chevron-up'></i>
+  </button>
 
+  <script src="script.js"></script>
+  
 </body>
 </html>
