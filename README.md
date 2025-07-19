@@ -2,7 +2,7 @@
 
 🚀 Built using HTML , CSS and JavaScript 
 🎯 Showcases my skills, journey, and web dev capabilities  
-📍 Live: [tanmay-aw.github.io/My-Portfolio/]("https://tanmay-aw.github.io/My-Portfolio/")
+📍 Live: [tanmay-aw.github.io/My-Portfolio](https://tanmay-aw.github.io/My-Portfolio/)
 
 ## About Me
 
