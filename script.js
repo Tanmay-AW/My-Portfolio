@@ -2,19 +2,14 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navbar = document.querySelector('.nav');
 
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav').classList.toggle('active');
-});
-
 menuToggle.addEventListener('click', () => {
   navbar.classList.toggle('active');
-  menuToggle.classList.toggle('bx-x');
+  menuToggle.classList.toggle('bx-x');   // Switch to close icon
+  menuToggle.classList.toggle('bx-menu'); // Switch back to menu
 
-  // Update aria-expanded attribute
   const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-  menuToggle.setAttribute('aria-expanded', !expanded);
+  menuToggle.setAttribute('aria-expanded', !expanded);
 });
-
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
   if (navbar.classList.contains('active') && 
@@ -26,7 +21,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Section reveal animation
+// Section reveal animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

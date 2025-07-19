@@ -593,3 +593,51 @@ button:focus-visible,
     justify-content: center;
   }
 }
+.menu-toggle {
+  font-size: 30px;
+  color: white;
+  background: none;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.menu-toggle:hover {
+  background: rgba(127, 90, 240, 0.2);
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(30, 30, 46, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 6rem 2rem 2rem;
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .glow-btn {
+    width: 100%;
+    max-width: 220px;
+    padding: 12px 20px;
+  }
+}
