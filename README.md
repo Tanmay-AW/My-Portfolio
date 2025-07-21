@@ -12,4 +12,5 @@ I’m a passionate B.Tech CSE student skilled in full-stack development. I lever
 
 - HTML5
 - CSS3
+- JavaScript
 - Git & GitHub
